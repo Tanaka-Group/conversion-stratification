@@ -1,10 +1,8 @@
-# Conversion oSCORAD to EASI with Isotonic regression
-
 # Initialisation ----------------------------------------------------------
 
 rm(list=ls()) # Clear Workspace
 
-load("data")
+load("data") # preprocessed data
 rm(Y,data_healthy)
 
 library(ggplot2)
