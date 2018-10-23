@@ -12,7 +12,7 @@ abacus <- read_delim("abacus.csv", ";", escape_double = FALSE, trim_ws = TRUE)
 
 ref_article=tags$p("The detailed methods are described in",
                    tags$a(href="https://doi.org/10.1111/bjd.16916",
-                          "Hurault et al. (2018), Br. J. Dermat. (in press)"))
+                          "Hurault et al. (2018), Br. J. Dermat."))
 
 # Prediction from abacus --------------------------------------------------
 
@@ -468,48 +468,6 @@ The correspondence between oSCORAD and EASI is defined by the conversion shown i
           tags$li(tags$strong("Cut-offs and IGA=0 and IGA=5")),
           tags$li(tags$strong("Cut-offs and IGA"))
         )
-        
-        # tags$h1("Interpreting the stratification"),
-        # tags$h3("Example"),
-        # tags$p("If IGA=2.2, then we know that 2<IGA<3.
-        #        0.2 means that there is 20% probability of belonging to the upper category, here IGA=3 (moderate).
-        #        Alternatively, there is 80% probability of belonging to the lower category, here IGA=2 (mild)"),
-        # tags$p("Conversely, if IGA=2.7, there is a 70% probability of having moderate symptoms (IGA=3) and a 30% probability of having mild symptoms"),
-        # 
-        # tags$h3("Default stratification"),
-        # tags$p("As a default, we choose the cut-off between each category to be 0.5.
-        #        For example, the cut-off between IGA=2 (mild) and IGA=3 (moderate) would be at 2.5.
-        #        That is to say, if 2.5<IGA<3, then there is at least 50% probability that IGA=3 and the patient is therefore classified as having moderate symptoms."),
-        # 
-        # tags$h3("Personalised stratification"),
-        # tags$p("A more general way of determining cut-offs is by considering the importance of misclassification using Bayes decision rule."),
-        # tags$p("There are two ways misclassification can happen.
-        #        Let's assume 2<IGA<3 and we want to determine if the patient has mild symptoms (IGA=2) or moderate symptoms (IGA=3).
-        #        Let's consider IGA=3 to be the positive category."),
-        # tags$p("The first way misclassification can occur is by predicting the patient to have moderate symptoms when instead he has mild symptoms. This is a false positive (FP) or a type I error."),
-        # tags$p("The second way misclassification can occur is by predicting the patient to have mild symptoms when instead he has moderate symptoms. This is a false negative (FN) or a type II error."),
-        # tags$p("Depending on the clinical setting, type I and type II errors may not have the same cost."),
-        # 
-        # tags$h3("Example"),
-        # tags$p("Let's imagine we decide to give more treatment to a patient who has moderate symptoms than to a patient who has mild symptoms.
-        #                 However, this treatment have a cost, so for example, we would like to be as certain as possible that the patient has indeed moderate symptoms when he is classified as such.
-        #                 In that case, we want to avoid FP, at the expense of having more FN.
-        #                 Another way of seeing that is to say that in that specific case, we value the precision of the classifier rather than it's sensitivity (see definitions below)."),
-        # tags$p("If we want to avoid FP, an intuitive way of doing it is by shifting the cut-off toward the positive class.
-        #                 That is to say, if the original cut-off is at 2.5 (at least 50% probability of belonging to the positive class), then we would like to move this cut-off toward 3, for example at 2.8 (at least 80% probability of belonging to the positive class)."),
-        # tags$p("Conversely, if we prefer to favour sensitivity instead of precision (i.e. we want to penalise FN more than FP), then the cut-off will move toward 2.
-        #                 This can happen when we want to identify all patients with moderate symptoms, at the expense of classifying some patients with mild symptoms as moderate."),
-        # 
-        # tags$h3("Precision vs Sensitivity"),
-        # tags$p("Precision is the answer to the question: When it predicts yes (positive class), how often is it correct?
-        #                 Sensitivity (or recall, or True Positive Rate) is the answer to the question: When it's actually yes, how often does it predict yes?"),
-        # 
-        # tags$h3("Optimal cut-off"),
-        # tags$p("Bayesian decision theory tells us that the optimal cut-off is that case is:"),
-        # helpText("$$c = \\frac{cost(FP)}{cost(FP)+cost(FN)}$$"),
-        # tags$p("Where c is the cut-off. If we normalise the costs so that the sum of them is 1, then"),
-        # helpText("$$ c = cost(FP) $$")
-        
       )
       
     }else{
